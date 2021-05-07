@@ -48,7 +48,7 @@ class _SOAPAction
       parseInt(port or 80)
     )
     @AddPortMapping """<NewRemoteHost></NewRemoteHost><NewExternalPort>#{external}</NewExternalPort><NewProtocol>#{protocol}</NewProtocol><NewInternalPort>#{internal}</NewInternalPort><NewInternalClient>#{ip}</NewInternalClient><NewEnabled>1</NewEnabled><NewPortMappingDescription>#{description}</NewPortMappingDescription><NewLeaseDuration>#{duration}</NewLeaseDuration>"""
-
+    return ip
 
   map:->
     li = []

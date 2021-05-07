@@ -7,13 +7,13 @@ upnp port mapping for deno
 ## import or export
 
 ```
-import Upnp from 'https://deno.land/x/rmw_upnp@0.0.10/lib/index.js'
+import Upnp from 'https://deno.land/x/rmw_upnp@0.0.11/lib/index.js'
 ```
 
 or export in your `deps.js`
 
 ```
-export {default as Upnp} from 'https://deno.land/x/rmw_upnp@0.0.10/lib/index.js'
+export {default as Upnp} from 'https://deno.land/x/rmw_upnp@0.0.11/lib/index.js'
 ```
 
 ## use
@@ -31,8 +31,8 @@ do =>
     console.log "UPNP not available"
     return
 
-  # mapPort(protocol,internal,external,duration=0,description="")
-  await upnp.mapPort(
+  # mapPort(protocol,internal,external,duration=0,description="") -> local ip
+  console.log await upnp.mapPort(
     "UDP",8080,8080,0,"upnp test"
   )
   console.log await upnp.map()
@@ -53,8 +53,8 @@ import Upnp from './index.js';
     console.log("UPNP not available");
     return;
   }
-  // mapPort(protocol,internal,external,duration=0,description="")
-  await upnp.mapPort("UDP", 8080, 8080, 0, "upnp test");
+  // mapPort(protocol,internal,external,duration=0,description="") -> local ip
+  console.log((await upnp.mapPort("UDP", 8080, 8080, 0, "upnp test")));
   return console.log((await upnp.map()));
 })();
 
