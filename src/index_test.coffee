@@ -10,4 +10,5 @@ do =>
   console.log await upnp.mapPort(
     "UDP",8080,8080,0,"upnp test"
   )
-  console.log await upnp.map()
+  for await i from upnp.map()
+    console.log i

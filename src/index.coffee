@@ -51,7 +51,6 @@ class _SOAPAction
     return ip
 
   map:->
-    li = []
     n = 0
     loop
       try
@@ -80,8 +79,7 @@ class _SOAPAction
       ]
         r[i] = parseInt r[i]
 
-      li.push r
-    li
+      yield r
 
   _:(action)->
     {url, serviceType} = @
